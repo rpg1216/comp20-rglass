@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Rick Roll</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<h1 id="title">Rick Roll</h1>
+
+<video src="https://www.cs.tufts.edu/comp/20/rickroll.mp4" id="rickroll" controls></video>
+<div id="lyrics"></div>
+
+<script>
+    var video = document.getElementById("rickroll");
+    video.addEventListener("timeupdate", timeCaptions);
+
+    function timeCaptions(){
+        if (video.currentTime < 5){
+            document.getElementById("lyrics").innerHTML = "Get ready...";
+        }
+        else if (video.currentTime < 10){
+            document.getElementById("lyrics").innerHTML = "...to sing your heart out!!!";
+        }
+        else if (video.currentTime < 18){
+            document.getElementById("lyrics").innerHTML = "~Instrumental~";
+        }
+        else if (video.currentTime < 22){
+            document.getElementById("lyrics").innerHTML = "We're no strangers to love";
+        }
+        else if (video.currentTime < 27){
+            document.getElementById("lyrics").innerHTML = "You know the rules and so do I";
+        }
+        else if (video.currentTime < 31){
+            document.getElementById("lyrics").innerHTML = "A full commitment's what I'm thinking of";
+        }
+        else if (video.currentTime < 35){
+            document.getElementById("lyrics").innerHTML = "You wouldn't get this from any other guy";
+        }
+        else if (video.currentTime < 43){
+            document.getElementById("lyrics").innerHTML = "I just wanna tell you how I'm feeling... Gotta make you understand";
+        }
+        else if (video.currentTime < 51){
+            document.getElementById("lyrics").innerHTML = "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you.";
+        }
+        else if (video.currentTime < 60){
+            document.getElementById("lyrics").innerHTML = "Never gonna make you cry. Never gonna say goodbye. Never gonna tell a lie and hurt you.";
+        }
+        else if (video.currentTime < 65){
+            document.getElementById("lyrics").innerHTML = "We've known eacher for so long";
+        }
+        else if (video.currentTime < 60 + 9){
+            document.getElementById("lyrics").innerHTML = "Your heart's been aching, but you're too shy to say it";
+        }
+        else if (video.currentTime < 60 + 17){
+            document.getElementById("lyrics").innerHTML = "Inside, we both know what's been going on... We know the game and we're gonna play it!";
+        }
+        else if (video.currentTime < 60 + 25){
+            document.getElementById("lyrics").innerHTML = "Aaaand if you ask me how I'm feeling, don't tell me you're to blind to see";
+        }
+        else if (video.currentTime < 60 + 34){
+            document.getElementById("lyrics").innerHTML = "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you.";
+        }
+        else if (video.currentTime < 60 + 42){
+            document.getElementById("lyrics").innerHTML = "Never gonna make you cry. Never gonna say goodbye. Never gonna tell a lie and hurt you.";
+        }
+        else if (video.currentTime < 60 + 50){
+            document.getElementById("lyrics").innerHTML = "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you.";
+        }
+        else if (video.currentTime < 2 * 60){
+            document.getElementById("lyrics").innerHTML = "Never gonna make you cry. Never gonna say goodbye. Never gonna tell a lie and hurt you.";
+        }
+        else if (video.currentTime < 2 * 60 + 17){
+            document.getElementById("lyrics").innerHTML = "(Ooh, give you up! Ooh, give you up) - Never gonna give, never gonna give - (Give you up) - Never gonna give, never gonna give - (Give you up)";
+        }
+        else if (video.currentTime < 2 * 60 + 20){
+            document.getElementById("lyrics").innerHTML = "We've known eacher for so long";
+        }
+        else if (video.currentTime < 2 * 60 + 25){
+            document.getElementById("lyrics").innerHTML = "Your heart's been aching, but you're too shy to say it";
+        }
+        else if (video.currentTime < 2 * 60 + 33){
+            document.getElementById("lyrics").innerHTML = "Inside, we both know what's been going on... We know the game and we're gonna play it!";
+        }
+        else if (video.currentTime < 2 * 60 + 41){
+            document.getElementById("lyrics").innerHTML = "I just wanna tell you how I'm feeling... Gotta make you understand";
+        }
+        else if (video.currentTime < 2 * 60 + 50){
+            document.getElementById("lyrics").innerHTML = "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you.";
+        }
+        else if (video.currentTime < 2 * 60 + 58){
+            document.getElementById("lyrics").innerHTML = "Never gonna make you cry. Never gonna say goodbye. Never gonna tell a lie and hurt you.";
+        }
+        else if (video.currentTime < 3 * 60 + 6){
+            document.getElementById("lyrics").innerHTML = "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you.";
+        }
+        else if (video.currentTime < 3 * 60 + 15){
+            document.getElementById("lyrics").innerHTML = "Never gonna make you cry. Never gonna say goodbye. Never gonna tell a lie and hurt you.";
+        }
+        else if (video.currentTime < 3 * 60 + 24){
+            document.getElementById("lyrics").innerHTML = "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you.";
+        }
+        else if (video.currentTime < 3 * 60 + 29){
+            document.getElementById("lyrics").innerHTML = "Never gonna make you cry. Never gonna say goodbye. Never gonna tell a lie and hurt you...";
+        }
+        else if (video.currentTime < 3 * 60 + 31){
+            document.getElementById("lyrics").innerHTML = ":)";
+        }
+
+    };
+    // Complete this section and create a CSS file named style.css
+</script>
+</body>
+</html> 

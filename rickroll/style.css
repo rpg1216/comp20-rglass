@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+#title {
+    text-align: center;
+    border-style: groove;
+    border-color: pink;
+    border-width: 5px;
+    margin-bottom: 10%;
+}
+
+#rickroll {
+    display: block;
+    margin: 0 auto;
+}
+
+#lyrics {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10%;
+}

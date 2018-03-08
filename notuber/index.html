@@ -3,64 +3,14 @@
 <html>
     <head>
         <title>Map</title>
-        <link rel="stylesheet" href="style.css"/>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
         <meta charset="utf-8">
         <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+        <link rel="stylesheet" href="style.css"/>
+        <script src="transpoMap.js"></script>
     </head>
+
     <body onload = "initMap()">
-        <div id="myMap"></div>
-        <script>
-            var myLat = 0;
-            var myLng = 0;
-            var me = new google.maps.LatLng(myLat, myLng);
-            var myOptions = {
-                zoom: 12,
-                center: me,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var map;
-            var infowindow;
-            var myUsername = "sIFQBKwb2S";
-            var myMarker;
-            var vehicleIcon = "vehicleIcon.png";
-            var passengerIcon = "passengerIcon.png";
-            var meIcon = "meIcon.png";
-            var request = new XMLHttpRequest();
-            var url = "https://jordan-marsh.herokuapp.com/rides";
-
-            function initMap() {
-                map = new google.maps.Map(document.getElementById("myMap"), myOptions);
-                infowindow = new google.maps.InfoWindow();
-                getMyLocation();
-            }
-
-            function getMyLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                        myLat = position.coords.latitude;
-                        myLng = position.coords.longitude;
-                        renderMap();
-                    });
-                }
-                else {
-                    alert("Geolocation not supported by web browser!!");
-                }
-            }
-
-            function renderMap() {
-                me = new google.maps.LatLng(myLat, myLng);
-                map.panTo(me);
-                myMarker = new google.maps.Marker({
-                    position: me,
-                    icon: meIcon,
-                    map: map,
-                    title: myUsername
-                });
-                myMarker.setMap(map);
-            }
-
-
-        </script> 
+        <div id="myMap"></div> 
     </body>
 </html>

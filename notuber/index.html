@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Map</title>
+        <link rel="stylesheet" href="style.css"/>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+        <meta charset="utf-8">
+        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+    </head>
+    <body onload = "init()">
+        <div id="myMap"></div>
+        <script>
+            var myLat = 0;
+            var myLng = 0;
+            var me = new google.maps.LatLng(myLat, myLng);
+            var myOptions = {
+                zoom: 12,
+                center: me,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map;
+            var marker;
+            var infowindow = new google.maps.InfoWindow();
+
+            function init() {
+                map = new google.maps.Map(document.getElementById("myMap"), myOptions);
+                    getMyLocation();
+            }
+
+            function getMyLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        myLat = position.coords.latitude;
+                        myLng = position.coords.longitude;
+                        renderMap();
+                    });
+                }
+                else {
+                    alert("Geolocation not supported by web browser!!");
+                }
+            }
+
+            function renderMap() {
+                me = new google.maps.LatLng(myLat, myLng);
+                map.panTo(me);
+                marker = new google.maps.Marker({
+                    position: me,
+                    title: "Peek-A-Boo!"
+                });
+                marker.setMap(map);
+            }
+        </script> 
+    </body>
+</html>

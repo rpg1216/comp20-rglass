@@ -2,12 +2,12 @@ var myLat = 0;
 var myLng = 0;
 var me = new google.maps.LatLng(myLat, myLng);
 var myOptions = {
-    zoom: 12,
+    zoom: 15,
     center: me,
     mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 var map;
-var infowindow;
+var infoWindow;
 var myUsername = "sIFQBKwb2S";
 var myMarker;
 var vehicleIcon = "vehicleIcon.png";
@@ -21,7 +21,7 @@ var meDriver; //used as bool
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("myMap"), myOptions);
-    infowindow = new google.maps.InfoWindow();
+    infoWindow = new google.maps.InfoWindow();
     getMyLocation();
 }
 
@@ -54,8 +54,8 @@ function renderMap() {
 function makeRequest(me)
 {
     request = new XMLHttpRequest;
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
             data = JSON.parse(request.responseText);
@@ -67,7 +67,7 @@ function makeRequest(me)
             setInfoWindow(myMarker, aroundMe);
         }
     }
-    request.send("username=" + myUsername + "&lat=" + myLat "&lng=" + myLng);
+    request.send("username=" + myUsername + "&lat=" + myLat + "&lng=" + myLng);
 }
 
 //means you are a vehicle
@@ -75,7 +75,7 @@ function showPassengers(passengers)
 {
     if(passengers != null) {
         for (count = 0; count < passengers.length; count++) {
-            passenger = passengers[i];
+            passenger = passengers[count];
             username = passenger["username"];
             thisLat = passenger["lat"];
             thisLng = passenger["lng"];
@@ -88,7 +88,7 @@ function showPassengers(passengers)
             thisDist = computeDist(thisPos);
             if(thisDist < minDist) {
                 minDist = thisDist;
-                minIndex = i;
+                minIndex = count;
             }
         }
         meDriver = true;
@@ -100,7 +100,7 @@ function showVehicles(vehicles)
 {
     if(vehicles != null) {
         for (count = 0; count < vehicles.length; count++) {
-            vehicle = vehicles[i];
+            vehicle = vehicles[count];
             username = vehicle["username"];
             thisLat = vehicle["lat"];
             thisLng = vehicle["lng"];
@@ -113,7 +113,7 @@ function showVehicles(vehicles)
             thisDist = computeDist(thisPos);
             if(thisDist < minDist) {
                 minDist = thisDist;
-                minIndex = i;
+                minIndex = count;
             }
         }
         meDriver = false;
@@ -154,4 +154,10 @@ function aroundMe(dist, vehicle)
     if(!vehicle)
         return "<p>My Username: " + myUsername + 
         "</p><p>Closest driver is " + dist + " miles away.</p>";
+}
+
+function getMarker(pos, Icon, title)
+{
+    return new google.maps.Marker({position: pos, icon: Icon, 
+                                                    map: map, title: title});
 }

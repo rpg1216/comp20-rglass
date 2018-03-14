@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Captain's Log</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        var log = [];
+        $(document).ready(function() {
+            
+            if (localStorage.log == null || localStorage.log == []) {
+                var titleLog = "<h3>HERE'S THE LOG:</h3>";
+                localStorage.log = [titleLog];
+            }
+
+            $("div").html(localStorage.log);
+
+            $("input").on("keyup", function(action) {
+                //on enter
+                if (action.keyCode == 13){
+                    var msgVal = $("#msg").val();
+                    $("#msg").val("");
+                    logDisplay(msgVal);
+                }
+            });
+
+            function logDisplay(msgVal) {
+                log = localStorage.log;
+                var currDate = new Date();
+                //parse date
+                var dateStr = currDate.toString().substring(0,11)
+                              + currDate.toString().substring(10,16)
+                              + currDate.toString().substring(16,24);
+
+                var logStr = "<p>" + dateStr + " - " + msgVal + "</p>";
+                
+                log = log.slice(0, 19) + [logStr] + log.slice(19, log.length);
+                localStorage.log = log;
+                $("div").html(log);
+            }
+        });    
+    </script>
+</head>
+
+<body>
+    <h1>Captain's Log</h1>
+    <h3>New entry: <input type="text" id="msg" name="msg" size="30" /></h3>
+    <div id="log"></div>
+</body>
+
+</html>

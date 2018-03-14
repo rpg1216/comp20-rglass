@@ -1,0 +1,31 @@
+body {
+    background-color : yellow;
+}
+
+h1 {
+    color : red;
+    text-align: center;
+    border-style: double;
+    border-color: red;
+    border-width: 5px;
+    margin-bottom: 2%;
+}
+
+h3 {
+    color : red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+input {
+    background-color : red;
+}
+
+#msg {
+    color: yellow;
+}
+
+p {
+    color : red;
+    font-size: 20px;
+}

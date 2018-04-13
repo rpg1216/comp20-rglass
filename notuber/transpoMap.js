@@ -14,7 +14,7 @@ var vehicleIcon = "vehicleIcon.png";
 var passengerIcon = "passengerIcon.png";
 var meIcon = "meIcon.png";
 var request;
-var url = "https://jordan-marsh.herokuapp.com/rides";
+var url = "https://safe-earth-19149.herokuapp.com/rides";
 
 var minDist = 1200;
 var meDriver; //used as bool

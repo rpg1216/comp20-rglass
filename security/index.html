@@ -40,10 +40,10 @@
             <p>Resolution: Implement a way to validate the amount of sent requests--ensure that a single request only be checked once in a given amount of time. Perhaps this could be monitered through the timestamp parameter.</p>
         <h3>Issue: Injection Flaw</h3>
             <p>Problem Location: https://immense-springs-96800.herokuapp.com/vehicles.json (GET route)</p>
-            <p>Description: An injection attack is performed by a malicious user in order to take control of something on the server side. In this case, I exposed the vulnerability in my client's code by setting the username parameter manually in the checkins.json GET request. I set the parameter in the url to "username[$ne]:null" which returned all of the registered vehicles with their locations and timestamps.</p> 
+            <p>Description: An injection attack is performed by a malicious user in order to take control of something on the server side. In this case, I exposed the vulnerability in my client's code by setting the username parameter manually in the checkins.json GET request. I set the parameter in the URL to "username[$ne]:null" which returned all of the registered vehicles with their locations and timestamps.</p> 
             <img src="method3.png" alt="method 3">
             <p>Severity: HIGH. Injection flaws allow malicious users to create, read, update, or delete any arbitrary data available to the application. This is dangerous, as an attacker can affect the entire application as well as its underlying systems.</p>
-            <p>Resolution: In the source code, the client compares to query to the database records with "collection.find( {"username" : username } )." If this were replaced with "collection.find({username:{$eq:username}})" then the site would be secured against manual tampering on the request query key and value. $eq compares two values and returns true when values are equivalent.
+            <p>Resolution: In the source code, the client compares the query to the database records with "collection.find( {"username" : username } )." If this were replaced with "collection.find({username:{$eq:username}})" then the site would be secured against manual tampering on the request query key and value. $eq compares two values and returns true when values are equivalent.
 
 
 
